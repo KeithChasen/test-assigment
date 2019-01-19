@@ -15,15 +15,16 @@ class CreateMaintenanceContactsTable extends Migration
     {
         Schema::create('maintenance_contacts', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('wall_group_id');
             $table->string('name');
             $table->string('title');
             $table->string('phone');
             $table->string('mobile_phone');
             $table->string('email');
-            $table->integer('contact_id')->nullable();
-            $table->integer('priority_contact_method')->nullable();
-            $table->integer('secondary_contact_method')->nullable();
-            $table->integer('spoken_language')->nullable();
+            $table->integer('contact_type_id')->nullable();
+            $table->integer('priority_contact_method_id')->nullable();
+            $table->integer('secondary_contact_method_id')->nullable();
+            $table->integer('spoken_language_id')->nullable();
             $table->string('street')->nullable();
             $table->string('street2')->nullable();
             $table->string('city')->nullable();
