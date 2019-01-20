@@ -16,6 +16,7 @@ class CreatePriorityContactingMethodsTable extends Migration
         Schema::create('priority_contacting_methods', function (Blueprint $table) {
             $table->increments('id');
             $table->string('label');
+            $table->timestamps();
         });
     }
 

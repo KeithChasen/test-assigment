@@ -16,6 +16,7 @@ class CreateSpokenLanguagesTable extends Migration
         Schema::create('spoken_languages', function (Blueprint $table) {
             $table->increments('id');
             $table->string('label');
+            $table->timestamps();
         });
     }
 

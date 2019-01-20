@@ -16,6 +16,7 @@ class CreateSecondaryContactingMethodsTable extends Migration
         Schema::create('secondary_contacting_methods', function (Blueprint $table) {
             $table->increments('id');
             $table->string('label');
+            $table->timestamps();
         });
     }
 
