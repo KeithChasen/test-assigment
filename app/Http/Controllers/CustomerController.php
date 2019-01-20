@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreateUserRequest;
-use App\Http\Requests\UpdateUserRequest;
-use App\Services\UserService;
+use App\Services\CustomerService;
 use Gate;
+use Illuminate\Http\Request;
 
-class UserController extends Controller
+class CustomerController extends Controller
 {
-    protected $userService;
+    protected $customerService;
 
-    public function __construct(UserService $userService)
+    public function __construct(CustomerService $customerService)
     {
-        $this->userService = $userService;
+        $this->customerService = $customerService;
     }
 
     /**
@@ -26,7 +25,7 @@ class UserController extends Controller
         if (Gate::allows('admin')) {
             return response()->json(
                 [
-                    'users' => $this->userService->getUserWithRole()
+                    'customers' => $this->customerService->getUserWithRole()
                 ],
                 200
             );
@@ -49,13 +48,13 @@ class UserController extends Controller
      * @param CreateUserRequest $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function store(CreateUserRequest $request)
+    public function store(Request $request)
     {
         if (Gate::allows('admin')) {
             try {
                 return response()->json(
                     [
-                        'user' => $this->userService->create($request)
+                        'user' => $this->customerService->create($request)
                     ],
                     200
                 );
@@ -79,7 +78,7 @@ class UserController extends Controller
         if (Gate::allows('admin')) {
             return response()->json(
                 [
-                    'user' => $this->userService->find($id)
+                    'user' => $this->customerService->find($id)
                 ],
                 200
             );
@@ -104,13 +103,13 @@ class UserController extends Controller
      * @param $id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function update(UpdateUserRequest $request, $id)
+    public function update(Request $request, $id)
     {
         if (Gate::allows('admin')) {
             try {
                 return response()->json(
                     [
-                        'user' => $this->userService->update($request, $id)
+                        'user' => $this->customerService->update($request, $id)
                     ],
                     200
                 );
@@ -133,7 +132,7 @@ class UserController extends Controller
     {
         if (Gate::allows('admin')) {
             try {
-                $this->userService->delete($id);
+                $this->customerService->delete($id);
                 return response()->json([], 200);
             } catch (\Exception $e) {
                 //todo: log stuff

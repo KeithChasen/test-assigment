@@ -2,13 +2,11 @@
 
 namespace App\Services;
 
-
-use App\Http\Requests\CreateUserRequest;
-use App\Http\Requests\UpdateUserRequest;
 use App\Models\Role;
 use App\Models\User;
+use Illuminate\Http\Request;
 
-class UserService
+class CustomerService
 {
 
     /**
@@ -23,13 +21,13 @@ class UserService
      * @param CreateUserRequest $request
      * @return mixed
      */
-    public function create(CreateUserRequest $request)
+    public function create(Request $request)
     {
         return User::create([
             'name' => $request->get('name'),
             'email' => $request->get('email'),
             'password' => bcrypt($request->get('password')),
-            'role_id' => Role::where('role', Role::USER_ROLE)->first()->id
+            'role_id' => Role::where('role', Role::CUSTOMER_ROLE)->first()->id
         ]);
     }
 
@@ -47,7 +45,7 @@ class UserService
      * @param $id
      * @return mixed
      */
-    public function update(UpdateUserRequest $request, $id)
+    public function update(Request $request, $id)
     {
         $user = User::findOrFail($id);
         $user->name = $request->get('name');

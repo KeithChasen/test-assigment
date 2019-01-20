@@ -11,10 +11,10 @@ Route::group(
 });
 Route::group(['middleware' => 'jwt.auth'], function () {
     Route::prefix('users')->group(function ($router) {
-        $router->get('/', 'UserController@index');
-        $router->get('/{id}', 'UserController@show');
-        $router->delete('/{id}', 'UserController@destroy');
-        $router->put('/{id}', 'UserController@update');
-        $router->post('/', 'UserController@store');
+        $router->get('/', 'CustomerController@index');
+        $router->get('/{id}', 'CustomerController@show');
+        $router->delete('/{id}', 'CustomerController@destroy');
+        $router->put('/{id}', 'CustomerController@update');
+        $router->post('/', 'CustomerController@store');
     });
 });

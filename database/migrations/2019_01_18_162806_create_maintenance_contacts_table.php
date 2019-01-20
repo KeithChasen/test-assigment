@@ -18,8 +18,8 @@ class CreateMaintenanceContactsTable extends Migration
             $table->integer('wall_group_id');
             $table->string('name');
             $table->string('title');
-            $table->string('phone');
-            $table->string('mobile_phone');
+            $table->string('phone')->nullable();
+            $table->string('mobile_phone')->nullable();
             $table->string('email');
             $table->integer('contact_type_id')->nullable();
             $table->integer('priority_contact_method_id')->nullable();

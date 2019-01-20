@@ -1,9 +1,12 @@
 <?php
+
 namespace App\Models;
+
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
+
 class User extends Authenticatable implements JWTSubject
 {
     use Notifiable;
@@ -13,7 +16,7 @@ class User extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'role_id'
+        'name', 'email', 'password'
     ];
     /**
      * The attributes that should be hidden for arrays.
@@ -42,8 +45,8 @@ class User extends Authenticatable implements JWTSubject
         return [];
     }
 
-    public function customer()
+    public function role()
     {
-        return $this->hasOne(Customer::class);
+        return $this->belongsTo(Role::class);
     }
 }
