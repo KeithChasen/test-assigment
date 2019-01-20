@@ -15,9 +15,6 @@
                         </li>
                     </template>
                     <template v-else>
-                        <li v-if="isAdmin">
-                            <router-link to="/admin/users/" class="nav-link">Admin</router-link>
-                        </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
                                 {{ currentUser.name }} <span class="caret"></span>

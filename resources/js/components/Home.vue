@@ -1,29 +1,12 @@
 <template>
     <div class="container">
-        <template v-if="!photos.length">
-            <div class="text-center">No photos</div>
-        </template>
-        <template v-else>
-            <div class="grid-container">
-                <div class="grid-item" v-for="photo in photos" :key="photo.id">
-                    <img :src='`/storage/${photo.path}`' alt="">
-                </div>
-            </div>
-        </template>
+        CUSTOMER INFO
     </div>
 </template>
 
 <script>
     export default {
         name: "home",
-        mounted() {
-
-        },
-        computed: {
-            isAdmin() {
-                return this.$store.getters.isAdmin
-            }
-        },
     }
 </script>
 

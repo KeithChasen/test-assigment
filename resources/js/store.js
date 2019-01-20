@@ -7,7 +7,6 @@ export default {
         currentUser: user,
         isLoggedIn: !!user,
         auth_error: null,
-        isAdmin: false,
         customers: [],
     },
     getters: {
@@ -25,8 +24,7 @@ export default {
             state.isLoggedIn = true;
             let token = payload.access_token
             state.currentUser = ({...payload.user, token})
-            state.isAdmin = payload.role === 'admin',
-                localStorage.setItem('user', JSON.stringify(state.currentUser));
+            localStorage.setItem('user', JSON.stringify(state.currentUser));
         },
 
         loginFailed: (state, payload) => state.auth_error = payload.error,

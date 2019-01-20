@@ -25,7 +25,7 @@ class CustomerController extends Controller
         if (Gate::allows('admin')) {
             return response()->json(
                 [
-                    'customers' => $this->customerService->getUserWithRole()
+                    'customers' => $this->customerService->getCustomers()
                 ],
                 200
             );

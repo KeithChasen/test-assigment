@@ -1,16 +1,30 @@
 import Home from '../components/Home';
 import Login from '../components/auth/Login'
+import AdminMain from '../components/AdminMain'
 
 export const routes = [
     {
         path: '/',
         component: Home,
         meta: {
-            requiresAuth: true
+            requiresAuth: true,
+            customerRole: true
         }
     },
     {
         path: '/login',
-        component: Login
+        component: Login,
+        meta: {
+            requiresAuth: false
+        }
+    },
+    {
+        path: '/admin',
+        component: AdminMain,
+        meta: {
+            requiresAuth: true,
+            userRole: true
+        },
+        // children: admin
     }
 ];

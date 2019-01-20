@@ -45,6 +45,11 @@ class User extends Authenticatable implements JWTSubject
         return [];
     }
 
+    public function scopeCustomers($query)
+    {
+        return $query->where('role_id', Role::where('role', Role::CUSTOMER_ROLE)->first()->id);
+    }
+
     public function role()
     {
         return $this->belongsTo(Role::class);

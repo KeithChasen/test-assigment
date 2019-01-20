@@ -12,9 +12,9 @@ class CustomerService
     /**
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
-    public function getUserWithRole()
+    public function getCustomers()
     {
-        return  User::with('role')->get();
+        return  User::customers()->get();
     }
 
     /**
@@ -23,10 +23,9 @@ class CustomerService
      */
     public function create(Request $request)
     {
-        return User::create([
+        return factory(User::class)->create([
             'name' => $request->get('name'),
             'email' => $request->get('email'),
-            'password' => bcrypt($request->get('password')),
             'role_id' => Role::where('role', Role::CUSTOMER_ROLE)->first()->id
         ]);
     }
