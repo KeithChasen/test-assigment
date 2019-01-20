@@ -7,8 +7,10 @@ import StoreData from './store';
 import MainApp from './components/MainApp.vue';
 import {bootstrap} from './core'
 
-import 'bootstrap'
-import 'bootstrap/dist/css/bootstrap.min.css'
+// import 'bootstrap'
+// import 'bootstrap/dist/css/bootstrap.min.css'
+
+import 'bulma/css/bulma.css';
 
 Vue.use(VueRouter);
 Vue.use(Vuex);

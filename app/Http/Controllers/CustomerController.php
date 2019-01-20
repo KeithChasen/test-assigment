@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Services\CustomerService;
 use Gate;
 use Illuminate\Http\Request;
@@ -16,19 +17,41 @@ class CustomerController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return array|\Illuminate\Http\JsonResponse
      */
-    public function index()
+    public function index(Request $request)
     {
+        $columns = ['name', 'email', 'street'];
+
+        $length = $request->input('length');
+        $column = $request->input('column');
+        $dir = $request->input('dir');
+        $searchValue = $request->input('search');
+
         if (Gate::allows('admin')) {
-            return response()->json(
-                [
-                    'customers' => $this->customerService->getCustomers()
-                ],
-                200
-            );
+
+            $query = User::customers()->select('id', 'name', 'email', 'street')
+                ->orderBy($columns[$column], $dir);
+
+            if ($searchValue) {
+                $query->where(function ($query) use ($searchValue) {
+                    $query->where('name', 'like', '%' . $searchValue . '%')
+                        ->orWhere('street', 'like', '%' . $searchValue . '%');
+                });
+            }
+
+            $customers = $query->paginate($length);
+
+            return ['data' => $customers, 'draw' => $request->input('draw')];
+
+
+//            return response()->json(
+//                [
+//                    'customers' => $this->customerService->getCustomers()
+//                ],
+//                200
+//            );
         }
 
         return response()->json(['error' => 'Forbidden'], 403);

@@ -1,6 +1,7 @@
 import Home from '../components/Home';
 import Login from '../components/auth/Login'
 import AdminMain from '../components/AdminMain'
+import {admin} from './admin'
 
 export const routes = [
     {
@@ -25,6 +26,6 @@ export const routes = [
             requiresAuth: true,
             userRole: true
         },
-        // children: admin
+        children: admin
     }
 ];

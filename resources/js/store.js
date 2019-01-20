@@ -35,7 +35,7 @@ export default {
             state.currentUser = null;
         },
 
-        updateCustomers: (state, payload) => state.customers = payload,
+        // updateCustomers: (state, payload) => state.customers = payload,
     },
     actions: {
         login: context => context.commit('login'),
@@ -48,12 +48,12 @@ export default {
             })
             .catch((error) => {  }),
 
-        getCustomers: context => axios.get('/api/customers')
-            .then((response) => {
-                if (response.status === 200) {
-                    context.commit('updateCustomers', response.data.customers)
-                }
-            })
-            .catch((error) => {  }),
+        // getCustomers: context => axios.get('/api/customers')
+        //     .then((response) => {
+        //         if (response.status === 200) {
+        //             context.commit('updateCustomers', response.data.customers)
+        //         }
+        //     })
+        //     .catch((error) => {  }),
     }
 }
