@@ -164,7 +164,6 @@
 
     .container {
         height: auto;
-        border: 5px solid #000;
         display: flex;
         flex-direction: column;
     }
@@ -197,13 +196,6 @@
         /* Force table to not be like tables anymore */
         table, thead, tbody, th, td, tr {
             display: block;
-        }
-
-        /* Hide table headers (but not display: none;, for accessibility) */
-        thead tr {
-            position: absolute;
-            top: -9999px;
-            left: -9999px;
         }
 
         tr { border: 1px solid #ccc; }

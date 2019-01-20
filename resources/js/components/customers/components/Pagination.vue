@@ -3,19 +3,19 @@
         <span>
             {{pagination.from}} - {{pagination.to}} of {{pagination.total}}
         </span>
-        <a v-if="pagination.prevPageUrl" class="button is-small pagination-previous" @click="$emit('prev')">
+        <button v-if="pagination.prevPageUrl" class="btn btn-small" @click="$emit('prev')">
             Prev
-        </a>
-        <a class="button is-small pagination-previous" v-else :disabled="true">
+        </button>
+        <button class="btn btn-small" v-else :disabled="true">
             Prev
-        </a>
+        </button>
 
-        <a v-if="pagination.nextPageUrl" class="button is-small pagination-next" @click="$emit('next')">
+        <button v-if="pagination.nextPageUrl" class="btn btn-small" @click="$emit('next')">
             Next
-        </a>
-        <a class="button is-small pagination-next" v-else :disabled="true">
+        </button>
+        <button class="btn btn-small" v-else :disabled="true">
             Next
-        </a>
+        </button>
     </footer>
 </template>
 
@@ -27,16 +27,22 @@
 </script>
 
 <style scoped lang="scss">
-    .pagination {
-        justify-content: flex-end !important;
 
-        .page-stats {
-            align-items: center;
-            margin-right: 5px;
-        }
+    .btn-small {
+        height: 24px;
+        line-height: 24px;
+        padding: 0 0.5rem;
+        background-color: antiquewhite;
+        margin-left: 10px;
+        color: rgba(0, 0, 0, 0.7);
+    }
 
-        i {
-            color: #3273dc !important;
-        }
+    footer {
+        color: white;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
     }
 </style>
