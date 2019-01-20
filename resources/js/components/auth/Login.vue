@@ -14,7 +14,7 @@
                             <input type="password" id="password" class="form-control" v-model="form.password">
                         </div>
                         <div class="form-group">
-                            <input type="submit" value="Login">
+                            <input type="submit" value="Login" class="btn">
                         </div>
                         <div class="form-group" v-if="authError">
                             <p class="error">
@@ -66,5 +66,10 @@
     .error {
         text-align: center;
         color: red;
+    }
+
+    .btn {
+        background-color: antiquewhite;
+        color: rgba(0, 0, 0, 0.7);
     }
 </style>

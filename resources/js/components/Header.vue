@@ -1,32 +1,30 @@
 <template>
-    <nav class="nav-wrapper teal darken-4">
+    <nav class="teal darken-4">
         <div class="container">
-            <router-link class="navbar-brand" to="/">
+            <router-link to="/">
                 Test App
             </router-link>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    <template v-if="!currentUser">
-                        <li>
-                            <router-link to="/login" class="nav-link">Login</router-link>
-                        </li>
-                    </template>
-                    <template v-else>
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
-                                {{ currentUser.name }} <span class="caret"></span>
-                            </a>
 
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a href="#!" @click.prevent="logout" class="dropdown-item">Logout</a>
-                            </div>
-                        </li>
-                    </template>
-                </ul>
-            </div>
+            <ul>
+                <template v-if="!currentUser">
+                    <li>
+                        <router-link to="/login" class="nav-link">Login</router-link>
+                    </li>
+                </template>
+                <template v-else>
+                    <li>
+                        <!-- Dropdown Trigger -->
+                        <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>{{ currentUser.name }} </a>
+
+                        <!-- Dropdown Structure -->
+                        <ul id='dropdown1' class='dropdown-content'>
+                            <li><a href="#!">{{ currentUser.name }} </a></li>
+                            <li class="divider" tabindex="-1"></li>
+                            <li><a href="#!" @click.prevent="logout">Logout</a></li>
+                        </ul>
+                    </li>
+                </template>
+            </ul>
         </div>
     </nav>
 </template>
@@ -50,3 +48,26 @@
         }
     }
 </script>
+
+<style scoped>
+
+    nav ul li {
+        float: left;
+    }
+
+    .dropdown-trigger {
+        position: absolute;
+        top: 20px;
+        right: 0;
+    }
+
+    .btn {
+        height: 24px;
+        line-height: 24px;
+        padding: 0 0.5rem;
+        background-color: antiquewhite;
+        margin-left: 10px;
+        color: rgba(0, 0, 0, 0.7);
+    }
+
+</style>

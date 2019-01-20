@@ -1,12 +1,8 @@
 <template>
     <div class="container">
-        <!--<div class="btn-wrapper">-->
-            <!--<router-link :to="`/admin/customers/new`" class="btn btn-primary btn-sm">New</router-link>-->
-        <!--</div>-->
-
-        <div class="row">
+        <div class="filter-container">
             <div class="filter-block">
-                <input type="text" class="input" v-model="tableData.search" placeholder="search..." @input="getCustomers()">
+                <input type="text" v-model="tableData.search" placeholder="search..." @input="getCustomers()">
             </div>
             <div class="filter-block">
                 <select v-model="tableData.length" @change="getCustomers()">
@@ -15,12 +11,19 @@
                     <option value="20">20</option>
                 </select>
             </div>
-
+            <div class="filter-block">
+                <router-link :to="`/admin/customers/new`" class="btn">New</router-link>
+            </div>
         </div>
 
         <datatable :columns="columns" :sortKey="sortKey" :sortOrders="sortOrders" @sort="sortBy">
             <tbody>
-                <tr v-for="customer in customers" :key="customer.id">
+                <router-link
+                    v-for="customer in customers"
+                    :key="customer.id"
+                    :to="`/admin/customers/{customer.id}`"
+                    tag="tr"
+                >
                     <td>{{customer.name}}</td>
                     <td>{{customer.email}}</td>
                     <td>{{customer.street}}</td>
@@ -29,7 +32,7 @@
                     <td>{{customer.state}}</td>
                     <td>{{customer.zipcode}}</td>
                     <td>{{customer.country}}</td>
-                </tr>
+                </router-link>
             </tbody>
         </datatable>
         <pagination class="pagination" :pagination="pagination"
@@ -153,13 +156,13 @@
 </script>
 
 <style scoped>
-    .btn-wrapper {
-        text-align: right;
-        margin-bottom: 20px;
+    .filter-container {
+        width: 100%;
     }
-    .crud-button {
-        margin-top: 5px;
-        margin-right: 5px;
+
+    .btn {
+        background-color: antiquewhite;
+        color: rgba(0, 0, 0, 0.7);
     }
 
     .container {
@@ -180,11 +183,19 @@
     }
 
     .filter-block {
-        width: 50%;
+        margin-top: 1%;
+        margin-left: 2%;
+        width: 25%;
+        display: inline-block;
     }
 
     @media screen and (max-width: 768px) {
         .filter-block {
+            width: 100%;
+            margin: auto 1% 1% auto;
+        }
+
+        .btn {
             width: 100%;
         }
     }
