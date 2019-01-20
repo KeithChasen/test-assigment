@@ -1,6 +1,6 @@
 <template>
-    <nav class="pagination">
-        <span class="page-stats">
+    <footer class="teal darken-4">
+        <span>
             {{pagination.from}} - {{pagination.to}} of {{pagination.total}}
         </span>
         <a v-if="pagination.prevPageUrl" class="button is-small pagination-previous" @click="$emit('prev')">
@@ -16,7 +16,7 @@
         <a class="button is-small pagination-next" v-else :disabled="true">
             Next
         </a>
-    </nav>
+    </footer>
 </template>
 
 <script>

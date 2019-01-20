@@ -1,5 +1,5 @@
 <template>
-    <table class="table is-bordered data-table">
+    <table class="table">
         <thead>
             <tr>
                 <th v-for="column in columns"
@@ -24,5 +24,20 @@
 </script>
 
 <style scoped>
+    @media
+    only screen and (max-width: 760px),
+    (min-device-width: 768px) and (max-device-width: 1024px) {
 
+        /* Force table to not be like tables anymore */
+        table, thead, tbody, th, td, tr {
+            display: block;
+        }
+
+        /* Hide table headers (but not display: none;, for accessibility) */
+        thead tr {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+    }
 </style>

@@ -22,7 +22,19 @@ class CustomerController extends Controller
      */
     public function index(Request $request)
     {
-        $columns = ['name', 'email', 'street'];
+        $columns = [
+            'name',
+            'email',
+            'street',
+            'street2',
+            'city',
+            'state',
+            'zipcode',
+            'country',
+            'business_id',
+            'service_team',
+            'customer_type_id'
+        ];
 
         $length = $request->input('length');
         $column = $request->input('column');
@@ -31,7 +43,21 @@ class CustomerController extends Controller
 
         if (Gate::allows('admin')) {
 
-            $query = User::customers()->select('id', 'name', 'email', 'street')
+            $query = User::customers()
+                ->select(
+                    'id',
+                    'name',
+                    'email',
+                    'street',
+                    'street2',
+                    'city',
+                    'state',
+                    'zipcode',
+                    'country',
+                    'business_id',
+                    'service_team',
+                    'customer_type_id'
+                )
                 ->orderBy($columns[$column], $dir);
 
             if ($searchValue) {
@@ -44,14 +70,6 @@ class CustomerController extends Controller
             $customers = $query->paginate($length);
 
             return ['data' => $customers, 'draw' => $request->input('draw')];
-
-
-//            return response()->json(
-//                [
-//                    'customers' => $this->customerService->getCustomers()
-//                ],
-//                200
-//            );
         }
 
         return response()->json(['error' => 'Forbidden'], 403);

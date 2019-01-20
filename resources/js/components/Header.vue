@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <nav class="nav-wrapper teal darken-4">
         <div class="container">
             <router-link class="navbar-brand" to="/">
                 Test App
