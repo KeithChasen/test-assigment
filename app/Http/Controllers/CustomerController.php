@@ -24,7 +24,6 @@ class CustomerController extends Controller
     {
         $columns = [
             'name',
-            'email',
             'street',
             'street2',
             'city',
@@ -47,7 +46,6 @@ class CustomerController extends Controller
                 ->select(
                     'id',
                     'name',
-                    'email',
                     'street',
                     'street2',
                     'city',

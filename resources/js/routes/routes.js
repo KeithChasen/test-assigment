@@ -1,7 +1,9 @@
 import Home from '../components/Home';
 import Login from '../components/auth/Login'
-import AdminMain from '../components/AdminMain'
-import {admin} from './admin'
+
+import CustomersMain from '../components/customers/Main'
+
+import {customers} from './customers'
 
 export const routes = [
     {
@@ -21,11 +23,11 @@ export const routes = [
     },
     {
         path: '/admin',
-        component: AdminMain,
+        component: CustomersMain,
         meta: {
             requiresAuth: true,
             userRole: true
         },
-        children: admin
+        children: customers
     }
 ];

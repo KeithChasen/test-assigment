@@ -23,11 +23,39 @@ class CustomerService
      */
     public function create(Request $request)
     {
-        return factory(User::class)->create([
+        $createData = [
             'name' => $request->get('name'),
-            'email' => $request->get('email'),
             'role_id' => Role::where('role', Role::CUSTOMER_ROLE)->first()->id
-        ]);
+        ];
+
+        if ($request->get('street'))
+            $createData['street'] = $request->get('street');
+
+        if ($request->get('street2'))
+            $createData['street2'] = $request->get('street2');
+
+        if ($request->get('city'))
+            $createData['city'] = $request->get('city');
+
+        if ($request->get('state'))
+            $createData['state'] = $request->get('state');
+
+        if ($request->get('zipcode'))
+            $createData['zipcode'] = $request->get('zipcode');
+
+        if ($request->get('country'))
+            $createData['country'] = $request->get('country');
+
+        if ($request->get('business_id'))
+            $createData['business_id'] = $request->get('business_id');
+
+        if ($request->get('service_team'))
+            $createData['service_team'] = $request->get('service_team');
+
+        if ($request->get('type'))
+            $createData['type'] = $request->get('type');
+
+        return factory(User::class)->create($createData);
     }
 
     /**

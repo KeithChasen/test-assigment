@@ -25,7 +25,6 @@
                     tag="tr"
                 >
                     <td>{{customer.name}}</td>
-                    <td>{{customer.email}}</td>
                     <td>{{customer.street}}</td>
                     <td>{{customer.street2}}</td>
                     <td>{{customer.city}}</td>
@@ -59,18 +58,16 @@
             let sortOrders = {}
 
             let columns = [
-                {width: '9%', label: 'Name', name: 'name'},
-                {width: '9%', label: 'Email', name: 'email'},
-                {width: '9%', label: 'Street', name: 'street'},
-
-                {width: '9%', label: 'Street 2', name: 'street2'},
-                {width: '9%', label: 'City', name: 'city'},
-                {width: '9%', label: 'State', name: 'state'},
-                {width: '9%', label: 'Zipcode', name: 'zipcode'},
-                {width: '9%', label: 'Country', name: 'country'},
-                {width: '9%', label: 'Business Id', name: 'business_id'},
-                {width: '9%', label: 'Service Team', name: 'service_team'},
-                {width: '9%', label: 'Customer Type', name: 'customer_type_id'},
+                {width: '10%', label: 'Name', name: 'name'},
+                {width: '10%', label: 'Street', name: 'street'},
+                {width: '10%', label: 'Street 2', name: 'street2'},
+                {width: '10%', label: 'City', name: 'city'},
+                {width: '10%', label: 'State', name: 'state'},
+                {width: '10%', label: 'Zipcode', name: 'zipcode'},
+                {width: '10%', label: 'Country', name: 'country'},
+                {width: '10%', label: 'Business Id', name: 'business_id'},
+                {width: '10%', label: 'Service Team', name: 'service_team'},
+                {width: '10%', label: 'Customer Type', name: 'customer_type_id'},
 
             ]
 
@@ -165,6 +162,10 @@
         color: rgba(0, 0, 0, 0.7);
     }
 
+    tbody tr:hover {
+        cursor: pointer;
+    }
+
     .container {
         height: auto;
         display: flex;
@@ -235,15 +236,14 @@
         Label the data
         */
         td:nth-of-type(1):before { content: "Name"; }
-        td:nth-of-type(2):before { content: "Email"; }
-        td:nth-of-type(3):before { content: "Street"; }
-        td:nth-of-type(4):before { content: "Street 2"; }
-        td:nth-of-type(5):before { content: "City"; }
-        td:nth-of-type(6):before { content: "State"; }
-        td:nth-of-type(7):before { content: "Zipcode"; }
-        td:nth-of-type(8):before { content: "Country"; }
-        td:nth-of-type(9):before { content: "Business Id"; }
-        td:nth-of-type(10):before { content: "Service Team"; }
-        td:nth-of-type(11):before { content: "Customer Type"; }
+        td:nth-of-type(2):before { content: "Street"; }
+        td:nth-of-type(3):before { content: "Street 2"; }
+        td:nth-of-type(4):before { content: "City"; }
+        td:nth-of-type(5):before { content: "State"; }
+        td:nth-of-type(6):before { content: "Zipcode"; }
+        td:nth-of-type(7):before { content: "Country"; }
+        td:nth-of-type(8):before { content: "Business Id"; }
+        td:nth-of-type(9):before { content: "Service Team"; }
+        td:nth-of-type(10):before { content: "Customer Type"; }
     }
 </style>

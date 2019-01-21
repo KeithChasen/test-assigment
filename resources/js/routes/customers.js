@@ -7,7 +7,7 @@ export const customers = [
         component: CustomersList
     },
     {
-        path: 'new',
+        path: 'customers/new',
         component: NewCustomer
     }
 ]

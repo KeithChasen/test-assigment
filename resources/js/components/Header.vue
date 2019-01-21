@@ -1,10 +1,9 @@
 <template>
     <nav class="teal darken-4">
         <div class="container">
-            <router-link to="/">
+            <router-link to="/" class="logo-link">
                 Test App
             </router-link>
-
             <ul>
                 <template v-if="!currentUser">
                     <li>
@@ -50,6 +49,16 @@
 </script>
 
 <style scoped>
+
+    .logo-link {
+        text-decoration: none;
+
+        /*margin: 10px;*/
+        /*float: left;*/
+        /*width: 200px;*/
+        /*height: 60px;*/
+        /*background: url("img/logo.png") no-repeat center;*/
+    }
 
     nav ul li {
         float: left;
