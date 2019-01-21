@@ -21,7 +21,7 @@
                 <router-link
                     v-for="customer in customers"
                     :key="customer.id"
-                    :to="`/admin/customers/{customer.id}`"
+                    :to="`/admin/customers/${customer.id}`"
                     tag="tr"
                 >
                     <td>{{customer.name}}</td>
