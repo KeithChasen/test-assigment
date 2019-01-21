@@ -2,7 +2,7 @@
     <div>
         <h2>Create Customer</h2>
         <form @submit.prevent="create">
-            <div  class="input-field">
+            <div class="input-field">
                 <label for="name">Name</label>
                 <input type="text" id="name" v-model="customer.name" value="">
             </div>
@@ -42,7 +42,7 @@
                 <label for="type">Type</label>
                 <input type="text" id="type" v-model="customer.type" value="">
             </div>
-            <button type="submit" class="btn btn-primary">Create</button>
+            <button type="submit" class="btn">Create</button>
         </form>
         <div class="errors" v-if="errors">
             <ul>

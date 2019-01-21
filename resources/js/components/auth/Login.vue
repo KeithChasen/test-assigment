@@ -1,31 +1,27 @@
 <template>
-    <div class="row justify-content-center">
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-header">Login</div>
-                <div class="card-body">
-                    <form @submit.prevent="authenticate">
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" class="form-control" v-model="form.email">
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" id="password" class="form-control" v-model="form.password">
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" value="Login" class="btn">
-                        </div>
-                        <div class="form-group" v-if="authError">
-                            <p class="error">
-                                {{ authError }}
-                            </p>
-                        </div>
-                    </form>
+    <div class="container">
+        <div class="row">
+            <form @submit.prevent="authenticate" class="col s12">
+                <div class="input-field">
+                    <input type="email" id="email" v-model="form.email">
+                    <label for="email">Email</label>
                 </div>
-            </div>
+                <div class="input-field">
+                    <input type="password" id="password"v-model="form.password">
+                    <label for="password">Password</label>
+                </div>
+                <div class="input-field">
+                    <input type="submit" value="Login" class="btn">
+                </div>
+                <div class="form-group" v-if="authError">
+                    <p class="error">
+                        {{ authError }}
+                    </p>
+                </div>
+            </form>
         </div>
     </div>
+
 </template>
 
 <script>
@@ -71,5 +67,14 @@
     .btn {
         background-color: antiquewhite;
         color: rgba(0, 0, 0, 0.7);
+    }
+
+    @media
+    only screen and (max-width: 760px),
+    (min-device-width: 768px) and (max-device-width: 1024px)  {
+
+        .row {
+            display: block;
+        }
     }
 </style>
