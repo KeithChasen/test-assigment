@@ -6,9 +6,12 @@ import {routes} from './routes/routes';
 import StoreData from './store';
 import MainApp from './components/MainApp.vue';
 import {bootstrap} from './core'
+import Vuetify from 'vuetify'
 
 import 'materialize-css/dist/css/materialize.min.css';
+import 'materialize-css/dist/js/materialize.min'
 
+Vue.use(Vuetify)
 Vue.use(VueRouter);
 Vue.use(Vuex);
 

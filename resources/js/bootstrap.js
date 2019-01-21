@@ -11,7 +11,7 @@ window.axios = require('axios');
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
-window.addEventListener('DOMContentLoaded', function() {
-    let elems = document.querySelectorAll('.dropdown-trigger');
-    let instances = M.Dropdown.init(elems);
+document.addEventListener('DOMContentLoaded', function() {
+    M.Dropdown.init(document.querySelectorAll('.dropdown-trigger'));
+    // M.Collapsible.init(document.querySelectorAll('.collapsible'));
 });
