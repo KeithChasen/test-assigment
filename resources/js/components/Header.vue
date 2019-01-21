@@ -2,7 +2,7 @@
     <nav class="teal darken-4">
         <div class="container">
             <router-link to="/" class="logo-link">
-                Test App
+                Naava
             </router-link>
             <ul>
                 <template v-if="!currentUser">
